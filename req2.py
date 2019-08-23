@@ -1,3 +1,4 @@
 import urllib.request
-url_link = 'https://vs1.coursehunter.net/itvdn-python-essential/lesson1.mp4'
-urllib.request.urlretrieve(url_link, 'video_name.mp4')
+with open('./links_list.txt') as file:
+    for url in file:
+        urllib.request.urlretrieve(url, './course/{}'.format(url.split('/')[4].replace('\n', '')))

@@ -8,4 +8,6 @@ with open('./test.html') as file:
     for item in our_list:
         items.append(item.findAll('link')[3].get('href'))
     # film_list = soup.find('li', {'class': 'lessons-item'}).findAll('link')[3].get('href')
-    print(items)
+with open('links_list.txt', 'w') as file:
+    for item in items:
+        file.write(item+'\n')
