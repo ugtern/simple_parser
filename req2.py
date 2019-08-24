@@ -10,12 +10,15 @@ with open('./links_list.txt') as file:
         # urllib.request.urlretrieve(url, './course2/{}'.format(url.split('/')[4].replace('\n', '')))
         # print('complete {}'.format(url))
 
-        path = './{}'.format(url.split('/')[4].replace('\n', ''))
+        path = './course2/{}'.format(url.split('/')[4].replace('\n', ''))
 
         print(path)
 
         with open(path, 'wb') as f:
             total_length = int(r.headers.get('content-length'))
+
+            print(total_length)
+
             for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length / 1024) + 1):
                 if chunk:
                     f.write(chunk)
